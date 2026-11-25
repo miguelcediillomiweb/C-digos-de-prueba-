@@ -105,3 +105,16 @@
 .scene[data-weather=rain] .road,.scene[data-weather=storm] .road{background:linear-gradient(#596b75,#202b39);box-shadow:inset 0 8px 20px #b9d8e744}
 .scene[data-weather=rain] .near-hills,.scene[data-weather=storm] .near-hills{filter:saturate(.72) brightness(.78)}
 .scene[data-weather=storm] .rain-layer{filter:contrast(1.18) brightness(1.08)}
+
+/* Globos confinados al cielo y siempre detrás de montañas, pueblo y carretera */
+.sky{z-index:0}
+.far-hills{z-index:1;pointer-events:none}
+.near-hills{z-index:2;pointer-events:none}
+.world{z-index:3}
+.balloon{bottom:3%;will-change:transform}
+.ba1{left:17%}.ba2{left:54%}.ba3{left:82%}
+@keyframes balloon-rise{0%{transform:translateY(0)}100%{transform:translateY(-440px)}}
+/* Controles táctiles */
+.panel{position:relative;z-index:20}
+.actions button{position:relative;z-index:21;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.actions button:active{transform:scale(.97)}
