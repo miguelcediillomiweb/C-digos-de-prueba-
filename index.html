@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101b31">
+<title>Laboratorio de paisajes · Ruta 1371</title>
+<link rel="stylesheet" href="css/escena.css">
+</head>
+<body>
+<header class="top"><div><span class="eyebrow">LABORATORIO VISUAL · RUTA 1371</span><h1>Prueba de paisaje</h1><p>Camión fijo · paisaje en movimiento · clima real de Reyes Acozac</p></div><span id="weatherStatus" class="status">Consultando clima…</span></header>
+<main>
+<section class="scene" id="scene" data-period="day" data-weather="clear">
+ <div class="sky">
+  <div class="stars" id="stars"></div><div class="shooting-star"></div>
+  <div class="sun" id="sun"></div><div class="moon-wrap" id="moonWrap"><div class="moon" id="moon"></div></div>
+  <div class="cloud-layer" id="clouds"><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i></div>
+  <div class="birds" id="birds"><svg viewBox="0 0 140 50"><path d="M2 24q13-19 26 0 13-19 26 0M55 17q12-17 24 0 12-17 24 0M99 27q10-15 20 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+  <div class="plane"><span class="plane-body">✈</span><i class="red"></i><i class="white"></i></div>
+ </div>
+ <div class="far-hills"></div><div class="near-hills"></div>
+ <div class="world" id="world">
+  <div class="distant-town">
+   <div class="house h1"><i></i><i></i><i></i><i></i></div><div class="house h2"><i></i><i></i><i></i><i></i></div><div class="house h3"><i></i><i></i><i></i><i></i></div><div class="house h4"><i></i><i></i><i></i><i></i></div>
+   <div class="cactus ca1"></div><div class="cactus ca2"></div><div class="pole p1"></div><div class="pole p2"></div><div class="pole p3"></div>
+  </div>
+  <div class="road"><div class="road-lines"></div></div>
+ </div>
+ <div class="weather-fog"></div><div class="rain-layer"></div><div class="lightning"></div>
+ <div class="headlight-beam"></div>
+ <svg class="truck" viewBox="0 0 420 190" role="img" aria-label="Camión Peñafiel">
+ <defs><linearGradient id="boxBlue" x2="0" y2="1"><stop stop-color="#318cdd"/><stop offset="1" stop-color="#0d4a8e"/></linearGradient><linearGradient id="glass" x2="1" y2="1"><stop stop-color="#e4f8ff"/><stop offset="1" stop-color="#7cb8dc"/></linearGradient></defs>
+ <ellipse cx="210" cy="177" rx="199" ry="8" fill="#0005"/><rect x="10" y="130" width="396" height="16" rx="4" fill="#252a31"/>
+ <rect x="10" y="22" width="264" height="111" rx="8" fill="url(#boxBlue)" stroke="#dfe8ef" stroke-width="4"/><path d="M10 111q60-17 120 0t144-3v25H10z" fill="#ffffff20"/>
+ <text x="143" y="91" text-anchor="middle" font-size="43" font-weight="900" font-style="italic" fill="#d9291c" stroke="white" stroke-width="5" paint-order="stroke" font-family="Arial">Peñafiel</text>
+ <path d="M274 55h83q15 0 23 15l29 48v15H274z" fill="#f4f5f6" stroke="#9aa5af" stroke-width="3"/><path d="M286 64h65q8 0 13 10l17 32h-95z" fill="url(#glass)" stroke="#667d8d" stroke-width="3"/><path d="M326 65l-13 40" stroke="#fff9" stroke-width="5"/><path d="M274 121h133" stroke="#d9291c" stroke-width="5"/>
+ <rect x="395" y="112" width="12" height="16" rx="3" fill="#fff1a3" class="front-lamp"/><rect x="7" y="118" width="8" height="17" fill="#ef3030" class="rear-lamp"/>
+ <g class="side-markers" fill="#ffc536"><circle cx="23" cy="128" r="4"/><circle cx="263" cy="128" r="4"/><circle cx="286" cy="128" r="4"/></g>
+ <g class="wheel"><circle cx="76" cy="148" r="26" fill="#17191d"/><circle cx="76" cy="148" r="15" fill="#bfc7cf"/><circle cx="76" cy="148" r="5" fill="#626a73"/></g><g class="wheel"><circle cx="331" cy="148" r="26" fill="#17191d"/><circle cx="331" cy="148" r="15" fill="#bfc7cf"/><circle cx="331" cy="148" r="5" fill="#626a73"/></g>
+ </svg>
+ <div class="moon-label" id="moonLabel"></div><div class="scene-label" id="sceneLabel">Día · clima actual</div>
+</section>
+<section class="panel">
+ <div class="panel-head"><strong>Vista en vivo</strong><span id="updated">Actualizando automáticamente</span></div>
+ <div class="actions"><button id="autoBtn" class="selected">Automático</button><button data-period="day">Día</button><button data-period="sunset">Atardecer</button><button data-period="night">Noche</button><button id="refresh">Actualizar clima</button></div>
+ <div class="actions weather-actions"><button data-weather="clear">Despejado</button><button data-weather="cloudy">Nublado</button><button data-weather="fog">Neblina</button><button data-weather="rain">Lluvia</button><button data-weather="storm">Tormenta</button><button data-weather="snow">Frío</button></div>
+ <p class="hint">Los botones de clima son para probar efectos. “Automático” usa el clima real de Reyes Acozac y la hora del teléfono.</p>
+</section>
+</main>
+<script src="js/escena.js"></script>
+</body></html>
