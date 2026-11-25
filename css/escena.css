@@ -68,3 +68,40 @@
 .scene .lightning{animation:none;opacity:0}
 .scene[data-weather=storm] .lightning{animation:flash 5s infinite}
 .scene[data-weather=storm] .lightning:after{animation:bolt 5s infinite}
+
+/* Avión: luces montadas sobre el fuselaje, viajan exactamente con él */
+.plane{width:90px;white-space:nowrap}
+.plane-body{position:relative;display:inline-block;line-height:1}
+.plane-lights{position:absolute;inset:0;pointer-events:none}
+.plane-lights i{position:absolute;width:5px;height:5px;border-radius:50%;z-index:3}
+.plane-lights .red{left:5px;top:13px;background:#ff2424;box-shadow:0 0 7px 3px #ff2424aa;animation:blink .8s infinite}
+.plane-lights .white{left:27px;top:2px;background:#fff;box-shadow:0 0 7px 3px #fff9;animation:blink .8s .4s infinite}
+/* Lluvia en capas: gotas diagonales, profundidad, rebote y suelo mojado */
+.rain-layer{overflow:hidden;background:
+ repeating-linear-gradient(108deg,transparent 0 11px,#dff4ffb8 12px 13px,transparent 14px 25px),
+ repeating-linear-gradient(108deg,transparent 0 31px,#ffffff7a 32px 34px,transparent 35px 58px);
+ background-size:100% 100%,100% 100%;
+ animation:rain-fall .42s linear infinite;
+ opacity:0;mix-blend-mode:screen}
+.rain-layer:before,.rain-layer:after{content:"";position:absolute;inset:-35% -15%;pointer-events:none}
+.rain-layer:before{background:repeating-linear-gradient(108deg,transparent 0 18px,#d9efffbb 19px 20px,transparent 21px 42px);animation:rain-fall .7s linear infinite;opacity:.72}
+.rain-layer:after{background:repeating-linear-gradient(108deg,transparent 0 7px,#ffffffc9 8px 10px,transparent 11px 21px);animation:rain-fall .27s linear infinite;opacity:.0}
+@keyframes rain-fall{from{transform:translate3d(2%,-12%,0)}to{transform:translate3d(-5%,18%,0)}}
+.rain-splashes{position:absolute;z-index:7;left:0;right:0;bottom:0;height:30%;pointer-events:none;opacity:0;
+ background:radial-gradient(ellipse at 12% 76%,#d9efff77 0 1px,transparent 4px),radial-gradient(ellipse at 27% 84%,#d9efff88 0 1px,transparent 5px),radial-gradient(ellipse at 48% 78%,#d9efff77 0 1px,transparent 4px),radial-gradient(ellipse at 72% 86%,#d9efff88 0 1px,transparent 5px),radial-gradient(ellipse at 91% 75%,#d9efff77 0 1px,transparent 4px);
+ background-size:130px 35px;animation:splash-shift .65s linear infinite}
+@keyframes splash-shift{50%{background-position:12px 7px}}
+.scene[data-weather=rain] .rain-layer,.scene[data-weather=storm] .rain-layer{opacity:.72}
+.scene[data-rain-intensity=light] .rain-layer{opacity:.36}
+.scene[data-rain-intensity=light] .rain-layer:after{opacity:.12}
+.scene[data-rain-intensity=moderate] .rain-layer{opacity:.7}
+.scene[data-rain-intensity=moderate] .rain-layer:after{opacity:.38}
+.scene[data-rain-intensity=heavy] .rain-layer{opacity:.98}
+.scene[data-rain-intensity=heavy] .rain-layer:after{opacity:.85}
+.scene[data-rain-intensity=heavy] .rain-layer:before{opacity:1}
+.scene[data-weather=rain] .rain-splashes,.scene[data-weather=storm] .rain-splashes{opacity:.75}
+.scene[data-rain-intensity=light] .rain-splashes{opacity:.28}
+.scene[data-rain-intensity=heavy] .rain-splashes{opacity:1;animation-duration:.32s}
+.scene[data-weather=rain] .road,.scene[data-weather=storm] .road{background:linear-gradient(#596b75,#202b39);box-shadow:inset 0 8px 20px #b9d8e744}
+.scene[data-weather=rain] .near-hills,.scene[data-weather=storm] .near-hills{filter:saturate(.72) brightness(.78)}
+.scene[data-weather=storm] .rain-layer{filter:contrast(1.18) brightness(1.08)}
