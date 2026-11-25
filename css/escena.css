@@ -63,3 +63,8 @@
 .scene[data-weather=storm] .lightning{animation:flash 5s infinite}
 .scene[data-weather=storm] .lightning:after{animation:bolt 5s infinite}
 @media(max-width:560px){.balloon{width:22px;height:30px}.pole:before{width:39px;left:-18px}}
+
+/* El relámpago solo aparece cuando el clima seleccionado es tormenta. */
+.scene .lightning{animation:none;opacity:0}
+.scene[data-weather=storm] .lightning{animation:flash 5s infinite}
+.scene[data-weather=storm] .lightning:after{animation:bolt 5s infinite}
