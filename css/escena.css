@@ -48,7 +48,7 @@
 .night .pole:before{background:#827763}
 .night .pole{isolation:isolate}
 .night .pole .halo{display:block}
-.pole .halo{display:none;position:absolute;z-index:-1;top:13px;left:-28px;width:60px;height:120px;background:linear-gradient(180deg,#ffe8a066,transparent 78%);clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);filter:blur(5px);pointer-events:none}
+ .pole .halo{display:none;position:absolute;z-index:0;top:13px;left:-28px;width:60px;height:120px;background:linear-gradient(180deg,#ffe8a066,transparent 78%);clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);filter:blur(5px);pointer-events:none}
 .night .pole:after{content:"";}
 /* Faros delanteros y marcadores del camión */
 .night .front-lamp{fill:#fff5bd;filter:drop-shadow(0 0 4px #fff4b0) drop-shadow(0 0 12px #ffe58a)}
