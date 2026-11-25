@@ -154,3 +154,19 @@
 .scene[data-weather=storm] .lightning:after{animation:storm-bolt 6.5s infinite}
 @keyframes storm-flash{0%,1.5%,3%,4.5%,100%{opacity:0}1%,2.3%,3.8%{opacity:.62}}
 @keyframes storm-bolt{0%,1.2%,3%,100%{opacity:0}1.3%,2.6%{opacity:1}}
+
+
+/* Corrección puntual de visibilidad: sol bajo, luces del avión y del camión */
+.scene.afternoon .sun{z-index:2}
+.scene.night .truck{filter:drop-shadow(0 8px 5px #0008) brightness(1.06)}
+.plane{width:90px;height:34px}
+.plane-body{display:inline-block;position:relative;width:42px;height:32px;line-height:32px;font-size:29px;vertical-align:top}
+.plane-lights{position:absolute;inset:0;width:42px;height:32px;z-index:5}
+.plane-lights .red{left:5px;top:15px;width:6px;height:6px;background:#ff2020;box-shadow:0 0 3px 2px #ff2020,0 0 9px 4px #ff202088}
+.plane-lights .white{left:22px;top:10px;width:6px;height:6px;background:#fff;box-shadow:0 0 3px 2px #fff,0 0 9px 4px #ffffff99}
+.truck .rear-lamp{fill:#ff1717;stroke:#ffb0b0;stroke-width:1.2;filter:drop-shadow(0 0 3px #ff1717) drop-shadow(0 0 9px #ff1717) drop-shadow(0 0 15px #f001)}
+.truck .cab-marker{fill:#ffc52f;stroke:#fff0a1;stroke-width:1;filter:drop-shadow(0 0 3px #ffc52f) drop-shadow(0 0 9px #ffb51c) drop-shadow(0 0 15px #ffb51c99)}
+.scene.night .truck .rear-lamp{animation:rear-glow 1.8s ease-in-out infinite alternate}
+.scene.night .truck .cab-marker{animation:cab-glow 1.4s ease-in-out infinite alternate}
+@keyframes rear-glow{from{filter:drop-shadow(0 0 3px #ff1717) drop-shadow(0 0 8px #ff1717)}to{filter:drop-shadow(0 0 6px #ff1717) drop-shadow(0 0 17px #ff1717) drop-shadow(0 0 24px #f006)}}
+@keyframes cab-glow{from{filter:drop-shadow(0 0 3px #ffc52f) drop-shadow(0 0 8px #ffb51c)}to{filter:drop-shadow(0 0 6px #ffc52f) drop-shadow(0 0 16px #ffb51c) drop-shadow(0 0 22px #ffb51c99)}}
